@@ -1,0 +1,18 @@
+
+
+<h2>Here are the containments we have in stock today!</h2>
+
+
+<h1>Lifetime view of containments</h1>
+<%= link_to 'New containment', new_containment_path %>
+<table>
+  <tr>
+    <th>Containment</th>
+  </tr>
+
+  <% @containments.each do |containment| %>
+    <tr>
+      <td><%= containment.name %></td>
+    </tr>
+  <% end %>
+</table>
