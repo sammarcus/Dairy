@@ -1,5 +1,5 @@
 class FlavorsController < ApplicationController
-   def index
+  def index
     @flavors = Flavor.all
   end
 
@@ -8,6 +8,7 @@ class FlavorsController < ApplicationController
   end
 
   def new
+    @flavor = Flavor.new
   end
 
 
@@ -15,14 +16,18 @@ class FlavorsController < ApplicationController
   def create
     @flavor = Flavor.new(flavor_params)
 
-    @flavor.save
-    redirect_to @flavor
+    if @flavor.save
+      redirect_to @flavor
+    else
+      render 'new'
+    end
   end
+
 
   private
   def flavor_params
-    params.require(:flavor).permit(:title)
+    params.require(:flavor).permit(:name)
   end
 
-
 end
+

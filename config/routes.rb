@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+  resources :orders
+  # root to: 'orders#new'
+  resources :flavors
+  # root to: 'flavors#new'
+
+  root 'home#index'
+  get 'home/index'
 
   get 'customers/new'
 
@@ -8,13 +17,9 @@ Rails.application.routes.draw do
 
   get 'customers/index'
 
-  resources :flavors
-  root to: 'flavors#new'
+
 
 
   # resources :toppings
   # reNesources :containments
 end
-
-
-#user 1 all orders from
