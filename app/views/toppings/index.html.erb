@@ -1,0 +1,16 @@
+<h2>Here are the toppings we have in stock today!</h2>
+
+
+<h1>Lifetime view of toppings</h1>
+<%= link_to 'New topping', new_topping_path %>
+<table>
+  <tr>
+    <th>Topping</th>
+  </tr>
+
+  <% @toppings.each do |topping| %>
+    <tr>
+      <td><%= topping.name %></td>
+    </tr>
+  <% end %>
+</table>
