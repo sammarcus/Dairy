@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'containments/index'
+
+  get 'containments/show'
+
+  get 'toppings/index'
+
+  get 'toppings/show'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   resources :orders
