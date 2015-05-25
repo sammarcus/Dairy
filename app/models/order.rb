@@ -10,3 +10,12 @@ class Order < ActiveRecord::Base
 
 end
 
+  # <%= simple_form_for Customer.new do |f| %>
+  # <%= f.association :customer %>
+  # <%= f.input :name %>
+  # <%= f.input :phone %>
+  # <%= f.input :email %>
+  # <%= f.button :submit %>
+  # <% end %>
+    # <%= f.label :text %><br>
+    # <%= f.text_area :text %>
