@@ -1,4 +1,5 @@
 class FlavorsController < ApplicationController
+  # showcase for flavors
   def index
     @flavors = Flavor.all
   end
@@ -10,8 +11,6 @@ class FlavorsController < ApplicationController
   def new
     @flavor = Flavor.new
   end
-
-
 
   def create
     @flavor = Flavor.new(flavor_params)

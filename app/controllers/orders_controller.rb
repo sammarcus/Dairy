@@ -5,6 +5,10 @@ class OrdersController < ApplicationController
     @order = Order.all
   end
 
+  def show
+    @order = Order.find(params[:id])
+  end
+
   def new
     @order = Order.new
   end
@@ -16,10 +20,6 @@ class OrdersController < ApplicationController
     else
       render 'new'
     end
-  end
-
-  def show
-    @order = Order.find(params[:id])
   end
 
   private
