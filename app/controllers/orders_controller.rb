@@ -11,11 +11,13 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @customer = Customer.new
   end
 
   def create
     @order = Order.new(order_params)
     if @order.save
+      Emailer.order_email(order)
       redirect_to @order
     else
       render 'new'
@@ -26,6 +28,7 @@ class OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:name)
   end
+
 
 
 
@@ -48,21 +51,5 @@ class OrdersController < ApplicationController
 
 
 
-# m = Mandrill::API.new
-# message = {
-#  :subject=> "Claire, you have a new order!",
-#  :from_name=> "Your name",
-#  :text=>"New Order!",
-#  :to=>[
-#    {
-#      :email=> "recipient@theirdomain.com",
-#      :name=> "Recipient1"
-#    }
-#  ],
-#  :html=>"<html><h1>New Order! <strong>New Order!</strong></h1></html>",
-#  :from_email=>"sender@yourdomain.com"
-# }
-# sending = m.messages.send message
-# puts sending
 
 end

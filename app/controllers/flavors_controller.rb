@@ -9,6 +9,7 @@ class FlavorsController < ApplicationController
     @flavor = Flavor.new
   end
 
+
   def create
     @flavor = Flavor.new(flavor_params)
     if @flavor.save
@@ -18,11 +19,22 @@ class FlavorsController < ApplicationController
     end
   end
 
+  def destroy
+    @flavors = flavors.find(params[:id])
+    @flavors.destroy
 
-  private
-  def flavor_params
-    params.require(:flavor).permit(:name)
+    respond_to do |format|
+      format.html { redirect_to(flavors_url) }
+      format.xml  { head :ok }
   end
-
 end
+
+
+    private
+    def flavor_params
+      params.require(:flavor).permit(:name, :avatar)
+    end
+
+
+  end
 
