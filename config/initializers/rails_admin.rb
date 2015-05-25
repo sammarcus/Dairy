@@ -5,12 +5,12 @@ RailsAdmin.config do |config|
     dashboard                     # mandatory
     index                         # mandatory
     new
-    export
+    # export
     bulk_delete
     show
     edit
     delete
-    show_in_app
+    # show_in_app
 
     ## With an audit adapter, you can add:
     # history_index
