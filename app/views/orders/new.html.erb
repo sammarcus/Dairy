@@ -1,30 +1,46 @@
 <h1>Place a new Ice Cream order</h1>
-<h1>This is the main FIRST page of the order</h1>
+
+
 
 <%= form_for :orders, url: orders_path do |f| %>
   <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
   </p>
+
 
 <%= link_to 'Orders', controller: 'orders' %>
 <%= link_to 'Flavors', controller: 'flavors' %>
 <%= link_to 'Toppings', controller: 'toppings' %>
 <%= link_to 'Containments', controller: 'containments' %>
 
+  <%= simple_form_for @order do |f| %>
 
-  <p>
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
-  </p>
-
+  <%= f.button :submit %>
+  <% end %>
   <p>
     <%= f.submit %>
   </p>
 <% end %>
 
+
 <form action="submit.asp" method="post">
   First name: <input type="text" name="fname"><br>
   Last name: <input type="text" name="lname"><br>
+  Address: <input type="text_area" name="address"><br>
+  Phone: <input type="text_area" name="phone"><br>
+  Email: <input type="text_area" name="email"><br>
+
+
+  Cone: <input type="checkbox" name="email"><br>
+  Bowl: <input type="checkbox" name="email"><br>
+  Flavor: <input type="text_area" name="email"><br>
+  Toppings: <input type="text_area" name="email"><br>
+
+
+
   <input type="submit" value="Submit">
 </form>
+   <p>
+
+  </p>
+
+

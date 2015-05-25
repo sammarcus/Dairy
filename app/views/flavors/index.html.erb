@@ -10,7 +10,9 @@
 
   <% @flavors.each do |flavor| %>
     <tr>
-      <td><%= flavor.name %></td>
+      <td><%= flavors.name %></td>
+      <td><%= image_tag @flavors.avatar.url %></td>
+      <td><%= image_tag @flavors.avatar.url(:medium) %></td>
     </tr>
   <% end %>
 </table>

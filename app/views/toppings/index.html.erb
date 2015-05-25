@@ -1,16 +1,17 @@
 <h2>Here are the toppings we have in stock today!</h2>
 
-
-<h1>Lifetime view of toppings</h1>
-<%= link_to 'New topping', new_topping_path %>
 <table>
   <tr>
-    <th>Topping</th>
+    <th>Topping name</th>
   </tr>
 
   <% @toppings.each do |topping| %>
     <tr>
       <td><%= topping.name %></td>
+      <td><%= image_tag @topping.avatar.url %></td>
+      <td><%= image_tag @topping.avatar.url(:medium) %></td>
     </tr>
   <% end %>
 </table>
+
+
