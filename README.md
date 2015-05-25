@@ -4,8 +4,6 @@ Dairy
 
 # Dairy
 
-Rails app that creates the shortest possible url
-
 dairy.herokuapp.com
 
 ## The setup
