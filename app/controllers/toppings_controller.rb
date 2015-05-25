@@ -1,21 +1,18 @@
 class ToppingsController < ApplicationController
   def index
-    @containments = Containment.all
+    @toppings = Topping.all
   end
 
-  def show
-    @containment = Containment.find(params[:id])
-  end
-
+#no view here
   def new
-    @containment = Containment.new
+    @topping = Topping.new
   end
 
   def create
-    @containment = Containment.new(containment_params)
+    @topping = Topping.new(topping_params)
 
-    if @containment.save
-      redirect_to @containment
+    if @topping.save
+      redirect_to @topping
     else
       render 'new'
     end
@@ -23,8 +20,8 @@ class ToppingsController < ApplicationController
 
 
   private
-  def containment_params
-    params.require(:containment).permit(:name)
+  def topping_params
+    params.require(:topping).permit(:name)
   end
 
 end
