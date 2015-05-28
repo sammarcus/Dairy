@@ -1,5 +1,5 @@
 class AddImageUrlToContainments < ActiveRecord::Migration
   def change
-    add_column :containments_path, :image_url, :string
+    add_column :containments, :image_url, :string
   end
 end
