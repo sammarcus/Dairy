@@ -10,6 +10,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'thin'
 gem 'paperclip'
+gem 'image_suckr'
+gem 'pry'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

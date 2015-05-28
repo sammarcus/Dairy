@@ -5,12 +5,12 @@ RailsAdmin.config do |config|
     dashboard                     # mandatory
     index                         # mandatory
     new
-    # export
+    export
     bulk_delete
     show
     edit
     delete
-    # show_in_app
+    show_in_app
 
     ## With an audit adapter, you can add:
     # history_index
@@ -35,24 +35,27 @@ RailsAdmin.config do |config|
   config.model 'Customer' do
     navigation_label 'Management'
     weight 0
+    exclude_fields :id
   end
 
   config.model 'Flavor' do
     navigation_label 'Ice Cream Configurations'
     weight 5
+    exclude_fields :id
   end
 
   config.model 'Topping' do
     navigation_label 'Ice Cream Configurations'
     weight 5
+    exclude_fields :id
   end
 
   config.model 'Containment' do
     navigation_label 'Ice Cream Configurations'
     weight 5
+    exclude_fields :id
   #   navigation_icon 'icon-user'
   end
-
 
 
 end

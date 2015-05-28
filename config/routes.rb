@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  get 'containments/index'
-
-  get 'containments/show'
-
-  get 'toppings/index'
-
-  get 'toppings/show'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
@@ -21,20 +14,9 @@ Rails.application.routes.draw do
   resources :containments
   # root to: 'containments#new'
 
+  resources :customers
+  # root to: 'containments#new'
+
   root 'home#index'
-  get 'home/index'
 
-  get 'customers/new'
-
-  get 'customers/create'
-
-  get 'customers/show'
-
-  get 'customers/index'
-
-
-
-
-  # resources :toppings
-  # reNesources :containments
 end

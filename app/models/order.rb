@@ -2,11 +2,16 @@ class Order < ActiveRecord::Base
   has_one :containment
   has_one :flavor, :through => :containment
 
+  has_many :toppings
+  has_many :toppings, :through => :containment
+
   has_one :customer
 
   validates :name, presence: true,
             allow_blank: false,
             uniqueness: true
+
+  accepts_nested_attributes_for :customer, :containment, :flavor, :toppings
 
 end
 

@@ -1,10 +1,13 @@
 <h1>Place a new Ice Cream order</h1>
 
 
+<h1>All Configurable Options::::</h1>
 
-<%= form_for :orders, url: orders_path do |f| %>
-  <p>
-  </p>
+
+
+
+<p>
+</p>
 
 
 <%= link_to 'Orders', controller: 'orders' %>
@@ -12,35 +15,42 @@
 <%= link_to 'Toppings', controller: 'toppings' %>
 <%= link_to 'Containments', controller: 'containments' %>
 
-  <%= simple_form_for @order do |f| %>
 
-  <%= f.button :submit %>
+
+
+
+<%= form_for @order do |f| %>
+Your info:
+<ul>
+  <%= f.fields_for :customer do |customer_form| %>
+  <li>
+    <%= customer_form.label :name %>
+    <%= customer_form.text_field :name %>
+
+    <%= customer_form.label :address %>
+    <%= customer_form.text_field :address %>
+
+    <%= customer_form.label :phone %>
+    <%= customer_form.text_field :phone %>
+
+    <%= customer_form.label :email %>
+    <%= customer_form.text_field :email %>
+  </li>
   <% end %>
-  <p>
-    <%= f.submit %>
-  </p>
+  </ul>
+  Flavors:
+<ul>
+  <%= f.fields_for :flavor do |flavor_form| %>
+
+  <li>
+    <%= flavor_form.label :name, "Pick your flavor" %>
+    <%= flavor_form.collection_select :order_id, Flavor.all,:id,:name %>
+    <%= flavor_form.select :flavor, Flavor.all.map { |c| [c.name, c.id] }%>
+  </li>
+  <% end %>
+
+
+</ul>
+<%= f.submit %>
 <% end %>
-
-
-<form action="submit.asp" method="post">
-  First name: <input type="text" name="fname"><br>
-  Last name: <input type="text" name="lname"><br>
-  Address: <input type="text_area" name="address"><br>
-  Phone: <input type="text_area" name="phone"><br>
-  Email: <input type="text_area" name="email"><br>
-
-
-  Cone: <input type="checkbox" name="email"><br>
-  Bowl: <input type="checkbox" name="email"><br>
-  Flavor: <input type="text_area" name="email"><br>
-  Toppings: <input type="text_area" name="email"><br>
-
-
-
-  <input type="submit" value="Submit">
-</form>
-   <p>
-
-  </p>
-
 
