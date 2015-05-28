@@ -1,4 +1,7 @@
 class ToppingsController < ApplicationController
+  suckr = ImageSuckr::GoogleSuckr.new
+
+
   def index
     @toppings = Topping.all
   end

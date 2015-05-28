@@ -1,4 +1,7 @@
 class ContainmentsController < ApplicationController
+  suckr = ImageSuckr::GoogleSuckr.new
+
+
   def index
     @containments = Containment.all
   end

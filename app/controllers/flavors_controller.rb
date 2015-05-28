@@ -1,4 +1,6 @@
 class FlavorsController < ApplicationController
+
+
   # showcase for flavors
   def index
     @flavors = Flavor.all
@@ -11,9 +13,12 @@ class FlavorsController < ApplicationController
 
 
   def create
+  suckr = ImageSuckr::GoogleSuckr.new
     @flavor = Flavor.new(flavor_params)
     if @flavor.save
+      @flavor.image_url = suckr.get_image_url({"q" => "#{@flavor.name}"})
       redirect_to @flavor
+      # binding.pry
     else
       render 'new'
     end
@@ -32,7 +37,7 @@ end
 
     private
     def flavor_params
-      params.require(:flavor).permit(:name, :avatar)
+      params.require(:flavor).permit(:name, :image_url)
     end
 
 
