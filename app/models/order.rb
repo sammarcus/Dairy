@@ -6,12 +6,12 @@ class Order < ActiveRecord::Base
   has_many :toppings, :through => :containment
 
   has_one :customer
-
-  validates :name, presence: true,
-            allow_blank: false,
-            uniqueness: true
-
   accepts_nested_attributes_for :customer, :containment, :flavor, :toppings
+
+  # validates
+  #           allow_blank: false,
+  #           uniqueness: true
+
 
 end
 

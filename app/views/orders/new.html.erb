@@ -18,36 +18,43 @@
 
 
 
+<%= form_for @order do |f| %>
+  // order fields
+  <%= f.fields_for :customer do |customer| %>
+    // customer fields
+  <% end %>
+<% end %>
+
 
 <%= form_for @order do |f| %>
 Your info:
 <ul>
-  <%= f.fields_for :customer do |customer_form| %>
+  <%= f.fields_for :customer do |customer| %>
   <li>
-    <%= customer_form.label :name %>
-    <%= customer_form.text_field :name %>
+    <%= customer.label :name %>
+    <%= customer.text_field :name %>
 
-    <%= customer_form.label :address %>
-    <%= customer_form.text_field :address %>
+    <%= customer.label :address %>
+    <%= customer.text_field :address %>
 
-    <%= customer_form.label :phone %>
-    <%= customer_form.text_field :phone %>
+    <%= customer.label :phone %>
+    <%= customer.text_field :phone %>
 
-    <%= customer_form.label :email %>
-    <%= customer_form.text_field :email %>
+    <%= customer.label :email %>
+    <%= customer.text_field :email %>
   </li>
   <% end %>
   </ul>
   Flavors:
 <ul>
-  <%= f.fields_for :flavor do |flavor_form| %>
+<!--   <%= f.fields_for :flavor do |flavor_form| %>
 
   <li>
     <%= flavor_form.label :name, "Pick your flavor" %>
     <%= flavor_form.collection_select :order_id, Flavor.all,:id,:name %>
     <%= flavor_form.select :flavor, Flavor.all.map { |c| [c.name, c.id] }%>
   </li>
-  <% end %>
+  <% end %> -->
 
 
 </ul>

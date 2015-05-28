@@ -3,12 +3,8 @@ class OrdersController < ApplicationController
   require 'mandrill'
   # order = Order::OrdersController.new
 
-  # def index
-  #   @orders = Order.all
-  # end
-
-  def show
-    @order = Order.find(params[:id])
+  def index
+    @orders = Order.all
   end
 
   def new
@@ -19,13 +15,19 @@ class OrdersController < ApplicationController
     # @order.toppings.build
   end
 
+
+  def show
+    @order = Order.find(params[:id])
+  end
+
+
   def create
     @order = Order.new(order_params)
+    @customer = Customer.new
 
     if @order.save
-
       # Emailer.order_email(order)
-      redirect_to @order
+      redirect_to order_path@order
     else
       render 'new'
     end
@@ -38,7 +40,7 @@ class OrdersController < ApplicationController
       # :containtment_id,
       # :flavor_id,
       # :topping_id,
-      customers_attributes: [ :id, :name, :address, :phone, :email]#,
+      customer_attributes: [ :id, :name, :address, :phone, :email]#,
       # containments_attributes: [:id, :name]
       # flavors_attributes: [:id, :name],
       # toppings_attributes: [:id, :name],
