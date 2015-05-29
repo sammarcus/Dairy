@@ -1,0 +1,13 @@
+<h1>Add a New Flavor</h1>
+
+<%= form_for :flavor, url: flavors_path do |f| %>
+
+  <p>
+    <%= f.label :flavor %><br>
+    <%= f.text_field :flavor %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
