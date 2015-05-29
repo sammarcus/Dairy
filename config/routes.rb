@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'customers/new'
+
+  get 'customers/create'
+
+  get 'customers/show'
+
+  get 'customers/index'
+
   resources :flavors
   root to: 'flavors#new'
 
