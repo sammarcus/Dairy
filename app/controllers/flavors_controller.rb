@@ -4,9 +4,6 @@ class FlavorsController < ApplicationController
     @flavors = Flavor.all
   end
 
-  def show
-    @flavor = Flavor.find(params[:id])
-  end
 
   def new
     @flavor = Flavor.new
@@ -14,7 +11,6 @@ class FlavorsController < ApplicationController
 
   def create
     @flavor = Flavor.new(flavor_params)
-
     if @flavor.save
       redirect_to @flavor
     else
