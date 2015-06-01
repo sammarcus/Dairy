@@ -1,10 +1,14 @@
 <h1>Place a new Ice Cream order</h1>
+<h1>This is the main FIRST page of the order</h1>
 
-<%= form_for :order, url: order_path do |f| %>
+<%= form_for :orders, url: orders_path do |f| %>
   <p>
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </p>
+
+<%= link_to 'Orders', controller: 'orders' %>
+
 
   <p>
     <%= f.label :text %><br>
