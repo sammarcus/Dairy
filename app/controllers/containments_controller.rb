@@ -3,10 +3,7 @@ class ContainmentsController < ApplicationController
     @containments = Containment.all
   end
 
-  def show
-    @containment = Containment.find(params[:id])
-  end
-
+#no view for this
   def new
     @containment = Containment.new
   end
