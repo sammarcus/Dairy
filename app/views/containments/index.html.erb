@@ -1,18 +1,18 @@
-<%= link_to 'Go back', home_index_path %>
+
 
 <h2>Here are the containments we have in stock today!</h2>
 
-
-<h1>view of containments</h1>
-
 <table>
   <tr>
-    <th>Containment</th>
+    <th>containment</th>
   </tr>
 
   <% @containments.each do |containment| %>
     <tr>
-      <td><%= containment.name %></td>
+     <p> <td><%= containment.name %></td>
+      <td><%= image_tag containment.image_url %><br><br></td>
+      </p>
     </tr>
   <% end %>
 </table>
+

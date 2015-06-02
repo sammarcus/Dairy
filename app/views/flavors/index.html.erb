@@ -1,4 +1,4 @@
-<%= link_to 'Go back', home_index_path %>
+
 <h2>Here are all of the flavors we have in stock today!</h2>
 
 
@@ -10,8 +10,9 @@
 
   <% @flavors.each do |flavor| %>
     <tr>
-      <td><%= flavor.name %></td>
-      <td><%= image_tag flavor.image_url %></td>
+     <p> <td><%= flavor.name %></td>
+      <td><%= image_tag flavor.image_url %><br><br></td>
+      </p>
     </tr>
   <% end %>
 </table>

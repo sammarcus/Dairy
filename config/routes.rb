@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  resources :orders
+  root 'home#index'
+
+  resources :orders, except: [:index]
   # root to: 'orders#new'
 
   resources :flavors
@@ -17,6 +19,5 @@ Rails.application.routes.draw do
   resources :customers
   # root to: 'containments#new'
 
-  root 'home#index'
 
 end

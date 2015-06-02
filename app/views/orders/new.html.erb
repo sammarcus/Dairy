@@ -1,29 +1,14 @@
 <h1>Place a new Ice Cream order</h1>
 
 
-<h1>All Configurable Options::::</h1>
-
-
-
 
 <p>
 </p>
 
-
-<%= link_to 'Orders', controller: 'orders' %>
 <%= link_to 'Flavors', controller: 'flavors' %>
 <%= link_to 'Toppings', controller: 'toppings' %>
 <%= link_to 'Containments', controller: 'containments' %>
 
-
-
-
-<%= form_for @order do |f| %>
-  // order fields
-  <%= f.fields_for :customer do |customer| %>
-    // customer fields
-  <% end %>
-<% end %>
 
 
 <%= form_for @order do |f| %>
@@ -44,15 +29,31 @@ Your info:
     <%= customer.text_field :email %>
   </li>
   <% end %>
-  </ul>
-  Flavors:
+</ul>
+Flavors:
 <ul>
-<!--   <%= f.fields_for :flavor do |flavor_form| %>
-
+  <%= f.fields_for :flavors do |flavor_form| %>
   <li>
     <%= flavor_form.label :name, "Pick your flavor" %>
-    <%= flavor_form.collection_select :order_id, Flavor.all,:id,:name %>
-    <%= flavor_form.select :flavor, Flavor.all.map { |c| [c.name, c.id] }%>
+    <%= flavor_form.collection_select :order_id, Flavor.all, :id, :name %>
+  </li>
+  <% end %>
+</ul>
+<!-- Toppings:
+<ul>
+  <%= f.fields_for :toppings do |topping_form| %>
+  <li>
+    <%= topping_form.label :name, "Pick your topping" %>
+    <%= topping_form.collection_select :order_id, Topping.all, :id, :name %>
+  </li>
+  <% end %>
+</ul>
+Containments:
+<ul>
+  <%= f.fields_for :containments do |containment_form| %>
+  <li>
+    <%= containment_form.label :name, "Pick your containment" %>
+    <%= containment_form.collection_select :order_id, Containment.all, :id, :name %>
   </li>
   <% end %> -->
 

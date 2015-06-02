@@ -1,17 +1,19 @@
 <h2>Here are the toppings we have in stock today!</h2>
 
+
+
+<h1>Topping:</h1>
 <table>
   <tr>
-    <th>Topping name</th>
+    <th>Topping</th>
   </tr>
 
   <% @toppings.each do |topping| %>
     <tr>
-      <td><%= topping.name %></td>
-      <td><%= image_tag @topping.avatar.url %></td>
-      <td><%= image_tag @topping.avatar.url(:medium) %></td>
+     <p> <td><%= topping.name %></td>
+      <td><%= image_tag topping.image_url %><br><br></td>
+      </p>
     </tr>
   <% end %>
 </table>
-
 

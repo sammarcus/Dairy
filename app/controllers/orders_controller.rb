@@ -1,7 +1,6 @@
 require 'pry'
 class OrdersController < ApplicationController
   require 'mandrill'
-  # order = Order::OrdersController.new
 
   def index
     @orders = Order.all
@@ -10,8 +9,8 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @order.build_customer
-    # @order.build_containment
     # @order.build_flavor
+    # @order.build_containment
     # @order.toppings.build
   end
 
@@ -22,14 +21,17 @@ class OrdersController < ApplicationController
 
 
   def create
+    # binding.pry
     @order = Order.new(order_params)
     @customer = Customer.new
+    @flavor = Flavor.new
 
     if @order.save
       # Emailer.order_email(order)
-      redirect_to order_path@order
+      redirect_to order_path @order
     else
-      render 'new'
+      # binding.pry
+      redirect_to :back
     end
   end
 
@@ -38,22 +40,17 @@ class OrdersController < ApplicationController
     params.require(:order).permit(
       :customer_id,
       # :containtment_id,
-      # :flavor_id,
+      :flavor_id,
       # :topping_id,
-      customer_attributes: [ :id, :name, :address, :phone, :email]#,
-      # containments_attributes: [:id, :name]
-      # flavors_attributes: [:id, :name],
+      customer_attributes: [ :id, :name, :address, :phone, :email],
+      # containments_attributes: [:id, :name],
+      flavors_attributes: [:id, :name, :image_url],
       # toppings_attributes: [:id, :name],
       )
   end
-
 end
 
 
-
-
-# bring out params
-# render plain: params[:order].inspect
 
 # Mailer
 #     # Create the order from params
